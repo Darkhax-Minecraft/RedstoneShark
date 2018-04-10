@@ -1,0 +1,16 @@
+[
+{
+  "modid": "redshark",
+  "name": "Red Shark",
+  "description": "Network sniffer for Minecraft.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Darkhax"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
