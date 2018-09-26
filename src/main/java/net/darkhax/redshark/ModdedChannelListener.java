@@ -16,11 +16,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleIndexedCodec;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 @Sharable
-public class WrappedChannel extends SimpleChannelInboundHandler<FMLProxyPacket> {
+public class ModdedChannelListener extends SimpleChannelInboundHandler<FMLProxyPacket> {
 
     private final TByteObjectHashMap<Class<?>> discriminators;
 
-    public WrappedChannel (SimpleIndexedCodec codec) {
+    public ModdedChannelListener (SimpleIndexedCodec codec) {
 
         this.discriminators = ReflectionHelper.getPrivateValue(FMLIndexedMessageToMessageCodec.class, codec, "discriminators");
     }

@@ -36,7 +36,7 @@ public class RedShark {
                     if (handler.getValue() instanceof SimpleIndexedCodec) {
 
                         log.info("Inserting listener to {}'s packet channel.", channel.getKey());
-                        channel.getValue().pipeline().addFirst(new WrappedChannel((SimpleIndexedCodec) handler.getValue()));
+                        channel.getValue().pipeline().addFirst(new ModdedChannelListener((SimpleIndexedCodec) handler.getValue()));
                         break;
                     }
                 }
