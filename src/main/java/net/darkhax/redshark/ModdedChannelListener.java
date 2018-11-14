@@ -8,6 +8,7 @@ import org.apache.commons.lang3.SystemUtils;
 import gnu.trove.map.hash.TByteObjectHashMap;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandler.Sharable;
+import it.unimi.dsi.fastutil.bytes.Byte2ObjectMap;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import net.minecraftforge.fml.common.network.FMLIndexedMessageToMessageCodec;
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 @Sharable
 public class ModdedChannelListener extends SimpleChannelInboundHandler<FMLProxyPacket> {
 
-    private final TByteObjectHashMap<Class<?>> discriminators;
+    private final Byte2ObjectMap<Class<?>> discriminators;
 
     public ModdedChannelListener (SimpleIndexedCodec codec) {
 
