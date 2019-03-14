@@ -27,7 +27,7 @@ public class RedShark {
 
     @EventHandler
     public void loadComplete(FMLLoadCompleteEvent event) {
-        String[] files = new File(".").list(new NameFileFilter("debug.log"));
+        String[] files = new File(".").list(new NameFileFilter("packets.log"));
         if (files != null && files.length == 0) {
             filename = "debug.log";
         } else if (files != null) {
@@ -39,7 +39,7 @@ public class RedShark {
                     max = Math.max(max, nMax);
                 }
             }
-            filename = String.format("debug.log.%d", max + 1);
+            filename = String.format("packets.log.%d", max + 1);
         }
 
         final EnumMap<Side, Map<String, FMLEmbeddedChannel>> channels = ReflectionHelper.getPrivateValue(NetworkRegistry.class, NetworkRegistry.INSTANCE, "channels");
