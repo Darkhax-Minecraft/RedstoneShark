@@ -1,6 +1,7 @@
 package net.darkhax.redshark;
 
 import io.netty.channel.ChannelHandler;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
@@ -23,6 +24,10 @@ import java.util.Map.Entry;
 public class RedShark {
 
     public static final Logger log = LogManager.getLogger("Red Shark");
+
+    public static final Configuration config = new Configuration(new File("config", "redshark.cfg"));
+
+    public static String[] hexdumpClasses = config.get("General", "Dump Class", new String[]{""}, "List of packet names that should be followed up with a hex dump.").getStringList();
 
     public static String filename;
 
@@ -60,5 +65,7 @@ public class RedShark {
                 }
             }
         }
+
+        config.save();
     }
 }
