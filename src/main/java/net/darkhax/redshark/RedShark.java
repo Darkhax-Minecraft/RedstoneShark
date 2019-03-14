@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleIndexedCodec;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.commons.io.filefilter.NameFileFilter;
+import org.apache.commons.io.filefilter.PrefixFileFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,9 +28,9 @@ public class RedShark {
 
     @EventHandler
     public void loadComplete(FMLLoadCompleteEvent event) {
-        String[] files = new File(".").list(new NameFileFilter("packets.log"));
+        String[] files = new File(".").list(new PrefixFileFilter("packets.log"));
         if (files != null && files.length == 0) {
-            filename = "debug.log";
+            filename = "packets.log";
         } else if (files != null) {
             int max = -1;
             for (String s : files) {
